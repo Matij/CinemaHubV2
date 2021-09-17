@@ -1,0 +1,85 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.fonteraro.martaco.cinemahub"
+        minSdkVersion 15
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+        // Default servers URL
+        buildConfigField "String", "API_SERVER_URL", "\"https://movies-sample.herokuapp.com/api/\""
+
+        // Default server endpoints
+        buildConfigField "String", "MOVIES", "\"movies\""
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation Libs.androidAppCompatV7
+    implementation Libs.support_annotations
+    testImplementation Libs.jUnit
+    androidTestImplementation Libs.testRunner
+    androidTestImplementation Libs.espresso
+
+    // dependency injection
+    implementation Libs.dagger
+    implementation Libs.daggerAndroid
+    implementation Libs.daggerAndroidSupport
+    annotationProcessor Libs.daggerCompiler
+    annotationProcessor Libs.daggerProcessor
+
+    // network
+    implementation Libs.retrofit
+    implementation Libs.retrofit_jacksonconverter
+
+    // database
+    implementation Libs.room
+    annotationProcessor Libs.roomCompiler
+
+    // view model
+    implementation Libs.lifecycleExtensions
+    annotationProcessor Libs.lifecycleCompiler
+
+    // constraint layout
+    implementation Libs.constraintLayout
+
+    // recycler view
+    implementation Libs.recyclerView
+    implementation Libs.support_design
+
+    // image loader
+    implementation Libs.picasso
+
+    // sorted list adapter
+    implementation Libs.sortedListAdapter
+
+    // Data-binding
+    implementation Libs.databinding_collectionadapter
+    implementation Libs.databinding_collectionadapter_recyclerView
+
+    implementation Libs.support_supportv4
+
+    // Android Gif drawable
+    implementation Libs.androidGifDrawable
+
+    // kotlin stdLib
+    implementation Libs.kotlinStdLib
+}

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.splash.SplashActivity">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.fonteraro.martaco.cinemahub.ui.splash.SplashViewModel" />
+
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/black">
+
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/cinema_icon_gif_image_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/cinema_neon"
+            android:scaleType="centerInside"
+            android:adjustViewBounds="true"
+            app:layout_constraintWidth_percent="0.5"
+            app:layout_constraintHeight_percent="0.5"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+        <pl.droidsonroids.gif.GifImageView
+            android:id="@+id/cinema_loader_gif_image_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/cinema"
+            android:scaleType="centerInside"
+            android:adjustViewBounds="true"
+            app:layout_constraintWidth_percent="0.5"
+            app:layout_constraintHeight_percent="0.5"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>
