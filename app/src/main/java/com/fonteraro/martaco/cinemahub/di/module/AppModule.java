@@ -1,8 +1,9 @@
 package com.fonteraro.martaco.cinemahub.di.module;
 
 import android.app.Application;
-import android.arch.persistence.room.Room;
 import android.content.Context;
+
+import androidx.room.Room;
 
 import com.fonteraro.martaco.cinemahub.BuildConfig;
 import com.fonteraro.martaco.cinemahub.data.DataRepository;

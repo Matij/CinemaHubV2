@@ -1,8 +1,5 @@
 package com.fonteraro.martaco.cinemahub.data;
 
-import android.arch.lifecycle.LiveData;
-import android.arch.lifecycle.MediatorLiveData;
-import android.support.annotation.NonNull;
 import com.fonteraro.martaco.cinemahub.data.local.db.dao.MovieDao;
 import com.fonteraro.martaco.cinemahub.data.local.prefs.AppPreferencesHelper;
 import com.fonteraro.martaco.cinemahub.data.model.db.Movie;
@@ -20,6 +17,10 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 import static com.fonteraro.martaco.cinemahub.utils.AppConstants.REFRESH_TIMEOUT_IN_MILLISECONDS;
+
+import androidx.annotation.NonNull;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MediatorLiveData;
 
 @Singleton
 public class DataRepository {

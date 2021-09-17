@@ -1,6 +1,6 @@
 package com.fonteraro.martaco.cinemahub.ui.main.adapter.sortedlist;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.fonteraro.martaco.cinemahub.data.model.db.Movie;
 import com.fonteraro.martaco.cinemahub.databinding.MovieItemBinding;

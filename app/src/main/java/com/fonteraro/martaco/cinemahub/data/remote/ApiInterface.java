@@ -1,6 +1,6 @@
 package com.fonteraro.martaco.cinemahub.data.remote;
 
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 
 import com.fonteraro.martaco.cinemahub.BuildConfig;
 import com.fonteraro.martaco.cinemahub.data.model.db.MovieDetails;

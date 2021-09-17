@@ -1,9 +1,10 @@
 package com.fonteraro.martaco.cinemahub.ui.main.adapter.sortedlist;
 
 import android.content.Context;
-import android.support.annotation.NonNull;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
 
 import com.fonteraro.martaco.cinemahub.data.model.db.Movie;
 import com.fonteraro.martaco.cinemahub.databinding.MovieItemBinding;

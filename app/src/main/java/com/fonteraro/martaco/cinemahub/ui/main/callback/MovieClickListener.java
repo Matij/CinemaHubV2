@@ -1,7 +1,8 @@
 package com.fonteraro.martaco.cinemahub.ui.main.callback;
 
-import android.support.annotation.NonNull;
 import android.view.View;
+
+import androidx.annotation.NonNull;
 
 public class MovieClickListener implements View.OnClickListener {
 

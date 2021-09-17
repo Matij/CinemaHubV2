@@ -1,11 +1,18 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-kapt'
+kapt {
+    correctErrorTypes = true
+    useBuildCache = true
+}
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 31
     defaultConfig {
         applicationId "com.fonteraro.martaco.cinemahub"
-        minSdkVersion 15
-        targetSdkVersion 28
+        minSdkVersion 17
+        targetSdkVersion 31
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -15,6 +22,8 @@ android {
 
         // Default server endpoints
         buildConfigField "String", "MOVIES", "\"movies\""
+
+        multiDexEnabled true
     }
     buildTypes {
         release {
@@ -23,18 +32,19 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility Versions.JAVA_VERSION_STR
+        targetCompatibility Versions.JAVA_VERSION_STR
     }
-    dataBinding {
-        enabled = true
+    buildFeatures {
+        viewBinding = true
+        dataBinding = true
     }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation Libs.androidAppCompatV7
-    implementation Libs.support_annotations
+    implementation Libs.androidAppCompat
+    implementation Libs.annotations
     testImplementation Libs.jUnit
     androidTestImplementation Libs.testRunner
     androidTestImplementation Libs.espresso
@@ -42,28 +52,27 @@ dependencies {
     // dependency injection
     implementation Libs.dagger
     implementation Libs.daggerAndroid
-    implementation Libs.daggerAndroidSupport
-    annotationProcessor Libs.daggerCompiler
-    annotationProcessor Libs.daggerProcessor
+    kapt Libs.daggerCompiler
+    kapt Libs.daggerProcessor
 
     // network
     implementation Libs.retrofit
     implementation Libs.retrofit_jacksonconverter
 
     // database
-    implementation Libs.room
-    annotationProcessor Libs.roomCompiler
+    kapt Libs.roomCompiler
+    implementation Libs.roomKtx
 
     // view model
     implementation Libs.lifecycleExtensions
-    annotationProcessor Libs.lifecycleCompiler
+    kapt Libs.lifecycleCompiler
 
     // constraint layout
     implementation Libs.constraintLayout
 
     // recycler view
     implementation Libs.recyclerView
-    implementation Libs.support_design
+    implementation Libs.material
 
     // image loader
     implementation Libs.picasso
@@ -74,8 +83,6 @@ dependencies {
     // Data-binding
     implementation Libs.databinding_collectionadapter
     implementation Libs.databinding_collectionadapter_recyclerView
-
-    implementation Libs.support_supportv4
 
     // Android Gif drawable
     implementation Libs.androidGifDrawable

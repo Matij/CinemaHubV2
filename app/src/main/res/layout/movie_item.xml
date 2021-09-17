@@ -9,7 +9,7 @@
             type="com.fonteraro.martaco.cinemahub.data.model.db.Movie" />
     </data>
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="5dp">
@@ -29,7 +29,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="5dp"
-            android:layout_marginRight="20dp"
             android:text="@{movie.genre}"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
@@ -44,6 +43,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:background="@drawable/background_rounded_white"/>
 
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>

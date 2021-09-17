@@ -4,14 +4,8 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.ObjectAnimator;
 import android.content.Intent;
-import android.databinding.ObservableArrayList;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -35,6 +29,13 @@ import java.util.Objects;
 import javax.inject.Inject;
 
 import static com.fonteraro.martaco.cinemahub.utils.AppConstants.EXTRA_KEY_MOVIE_ID;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SearchView;
+import androidx.databinding.ObservableArrayList;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 public class MainActivity extends BaseActivity<ActivityMainBinding, MainViewModel>
         implements SearchView.OnQueryTextListener, SortedListAdapter.Callback, IMovieClickListener {

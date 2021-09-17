@@ -1,7 +1,7 @@
 package com.fonteraro.martaco.cinemahub.ui.details;
 
-import android.arch.lifecycle.LiveData;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
+import androidx.lifecycle.LiveData;
 
 import com.fonteraro.martaco.cinemahub.data.DataRepository;
 import com.fonteraro.martaco.cinemahub.data.model.db.MovieDetails;
