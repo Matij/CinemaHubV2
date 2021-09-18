@@ -81,7 +81,7 @@ dependencies {
     implementation Libs.material
 
     // image loader
-    implementation Libs.picasso
+    implementation Libs.glide
 
     // sorted list adapter
     implementation Libs.sortedListAdapter

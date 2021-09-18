@@ -2,7 +2,7 @@ package com.fonteraro.martaco.cinemahub.ui.main
 
 import com.fonteraro.martaco.cinemahub.ui.base.BaseActivity
 import com.fonteraro.martaco.cinemahub.ui.main.callback.IMovieClickListener
-import com.fonteraro.martaco.cinemahub.ui.main.adapter.sortedlist.SortedMoviesAdapter
+import com.fonteraro.martaco.cinemahub.ui.main.adapter.sortedlist.MoviesAdapter
 import android.os.Bundle
 import com.fonteraro.martaco.cinemahub.R
 import androidx.recyclerview.widget.GridLayoutManager
@@ -21,7 +21,7 @@ class MainActivity : BaseActivity<ActivityMainBinding?, MainViewModel?>(),
     SearchView.OnQueryTextListener, IMovieClickListener {
 
     @Inject lateinit var mainViewModel: MainViewModel
-    private var moviesAdapter: SortedMoviesAdapter? = null
+    private var moviesAdapter: MoviesAdapter? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,16 +44,14 @@ class MainActivity : BaseActivity<ActivityMainBinding?, MainViewModel?>(),
     private fun initialiseContentView() {
         val moviesRecyclerView = viewDataBinding!!.recyclerView
         moviesRecyclerView.layoutManager = GridLayoutManager(this, 4)
-        moviesAdapter = SortedMoviesAdapter(this, this)
+        moviesAdapter = MoviesAdapter(::onMovieClicked)
         moviesRecyclerView.adapter = moviesAdapter
     }
 
     private fun updateUI() {
         with(mainViewModel) {
             movies.observe(this@MainActivity, EventObserver { movieList ->
-                moviesAdapter!!.edit()
-                    .replaceAll(movieList)
-                    .commit()
+                moviesAdapter!!.submitList(movieList)
             })
             isLoading.observe(this@MainActivity, EventObserver { isLoading ->
                 viewDataBinding!!.progressBar.isVisible = isLoading

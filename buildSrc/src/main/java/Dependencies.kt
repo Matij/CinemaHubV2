@@ -11,6 +11,7 @@ object Versions {
     const val dagger2 = "2.38.1"
     const val databindingAdapterVersion = "4.0.0"
     const val espressoVersion = "3.4.0"
+    const val glideVersion = "4.12.0"
     const val jUnitVersion = "4.13.2"
     const val kotlinVersion = "1.5.30"
     const val materialVersion = "1.4.0"
@@ -19,7 +20,6 @@ object Versions {
     const val lifecycleCompilerVersion = "2.3.1"
     const val lifecycleExtVersion = "2.2.0"
     const val okHttpVersion = "4.9.1"
-    const val picassoVersion = "2.71828"
     const val recyclerViewVersion = "1.2.0"
     const val retrofitVersion = "2.9.0"
     const val roomVersion = "2.3.0"
@@ -63,7 +63,7 @@ object Libs {
     const val moshiKotlin = "com.squareup.moshi:moshi-kotlin:${Versions.moshiVersion}"
     const val moshiKotlinCodegen = "com.squareup.moshi:moshi-kotlin-codegen:${Versions.moshiVersion}"
 
-    const val picasso = "com.squareup.picasso:picasso:${Versions.picassoVersion}"
+    const val glide = "com.github.bumptech.glide:glide:${Versions.glideVersion}"
 
     const val sortedListAdapter = "com.github.wrdlbrnft:sorted-list-adapter:${Versions.sortedAdapterVersion}"
 
