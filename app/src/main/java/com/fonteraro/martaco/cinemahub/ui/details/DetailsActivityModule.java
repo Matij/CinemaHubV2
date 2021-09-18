@@ -1,6 +1,7 @@
 package com.fonteraro.martaco.cinemahub.ui.details;
 
-import com.fonteraro.martaco.cinemahub.data.DataRepository;
+import com.fonteraro.martaco.cinemahub.data.MoviesRepository;
+import com.fonteraro.martaco.cinemahub.di.module.CoroutineDispatchers;
 
 import dagger.Module;
 import dagger.Provides;
@@ -9,7 +10,10 @@ import dagger.Provides;
 public class DetailsActivityModule {
 
     @Provides
-    DetailsViewModel provideDetailsViewModel(DataRepository dataRepository) {
-        return new DetailsViewModel(dataRepository);
+    DetailsViewModel provideDetailsViewModel(
+            MoviesRepository moviesRepository,
+            CoroutineDispatchers dispatchers
+    ) {
+        return new DetailsViewModel(moviesRepository, dispatchers);
     }
 }

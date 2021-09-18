@@ -22,13 +22,6 @@ public class SplashActivity extends BaseActivity<ActivitySplashBinding, SplashVi
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        mSplashViewModel.init();
-
-        mSplashViewModel.geMovies().observe(this, movies -> onMoviesReceived());
-    }
-
-    private void onMoviesReceived() {
         goToMainActivity();
     }
 

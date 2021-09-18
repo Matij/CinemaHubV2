@@ -2,7 +2,7 @@ package com.fonteraro.martaco.cinemahub.ui.main.adapter.sortedlist;
 
 import androidx.annotation.NonNull;
 
-import com.fonteraro.martaco.cinemahub.data.model.db.Movie;
+import com.fonteraro.martaco.cinemahub.ui.model.Movie;
 import com.fonteraro.martaco.cinemahub.databinding.MovieItemBinding;
 import com.fonteraro.martaco.cinemahub.ui.main.callback.IMovieClickListener;
 import com.fonteraro.martaco.cinemahub.ui.main.callback.MovieClickListener;
@@ -23,7 +23,6 @@ public class MovieViewHolder extends SortedListAdapter.ViewHolder<Movie> {
     @Override
     protected void performBind(@NonNull Movie item) {
         mBinding.setMovie(item);
-
-        itemView.setOnClickListener(new MovieClickListener(listener, String.valueOf(item.id)));
+        mBinding.setListener(new MovieClickListener(listener, item.id));
     }
 }

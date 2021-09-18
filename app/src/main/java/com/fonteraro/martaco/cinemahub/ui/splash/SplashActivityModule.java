@@ -1,6 +1,6 @@
 package com.fonteraro.martaco.cinemahub.ui.splash;
 
-import com.fonteraro.martaco.cinemahub.data.DataRepository;
+import com.fonteraro.martaco.cinemahub.di.module.CoroutineDispatchers;
 
 import dagger.Module;
 import dagger.Provides;
@@ -9,7 +9,7 @@ import dagger.Provides;
 public class SplashActivityModule {
 
     @Provides
-    SplashViewModel provideSplashViewModel(DataRepository dataRepository) {
-        return new SplashViewModel(dataRepository);
+    SplashViewModel provideSplashViewModel(CoroutineDispatchers dispatchers) {
+        return new SplashViewModel(dispatchers);
     }
 }

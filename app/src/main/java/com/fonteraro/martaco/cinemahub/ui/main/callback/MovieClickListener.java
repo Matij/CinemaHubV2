@@ -9,9 +9,9 @@ public class MovieClickListener implements View.OnClickListener {
     @NonNull
     private IMovieClickListener listener;
     @NonNull
-    private String movieId;
+    private Long movieId;
 
-    public MovieClickListener(@NonNull IMovieClickListener listener, @NonNull String movieId) {
+    public MovieClickListener(@NonNull IMovieClickListener listener, @NonNull Long movieId) {
         this.listener = listener;
         this.movieId = movieId;
     }

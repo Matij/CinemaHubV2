@@ -6,13 +6,18 @@
     <data>
         <variable
             name="movie"
-            type="com.fonteraro.martaco.cinemahub.data.model.db.Movie" />
+            type="com.fonteraro.martaco.cinemahub.ui.model.Movie" />
+        <variable
+            name="listener"
+            type="com.fonteraro.martaco.cinemahub.ui.main.callback.MovieClickListener" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="5dp">
+        android:layout_margin="5dp"
+        android:onClick="@{listener::onClick}"
+        >
 
         <ImageView
             android:id="@+id/poster_imageview"

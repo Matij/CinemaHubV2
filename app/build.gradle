@@ -56,8 +56,14 @@ dependencies {
     kapt Libs.daggerProcessor
 
     // network
+    implementation Libs.okhttp
+    implementation Libs.loggingInterceptor
     implementation Libs.retrofit
-    implementation Libs.retrofit_jacksonconverter
+    implementation Libs.converterMoshi
+    implementation Libs.moshi
+    implementation Libs.moshiKotlinCodegen
+    // for @JsonClass(generateAdapter = true)
+    implementation Libs.moshiAdapters
 
     // database
     kapt Libs.roomCompiler
@@ -89,4 +95,10 @@ dependencies {
 
     // kotlin stdLib
     implementation Libs.kotlinStdLib
+    // coroutines
+    implementation Libs.core
+    implementation Libs.rx2
+    implementation Libs.android
+
+    implementation Libs.coreKtx
 }

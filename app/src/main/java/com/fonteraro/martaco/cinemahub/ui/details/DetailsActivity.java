@@ -1,23 +1,16 @@
 package com.fonteraro.martaco.cinemahub.ui.details;
 
-import android.os.Bundle;
-
-import com.fonteraro.martaco.cinemahub.BR;
-import com.fonteraro.martaco.cinemahub.R;
-import com.fonteraro.martaco.cinemahub.data.model.db.MovieDetails;
-import com.fonteraro.martaco.cinemahub.databinding.ActivityDetailsBinding;
-import com.fonteraro.martaco.cinemahub.ui.base.BaseActivity;
-import com.fonteraro.martaco.cinemahub.ui.details.callback.MovieRequestListener;
-
-import javax.inject.Inject;
-
 import static com.fonteraro.martaco.cinemahub.utils.AppConstants.EXTRA_KEY_MOVIE_ID;
 
-import androidx.annotation.NonNull;
+import android.os.Bundle;
+import com.fonteraro.martaco.cinemahub.BR;
+import com.fonteraro.martaco.cinemahub.R;
+import com.fonteraro.martaco.cinemahub.databinding.ActivityDetailsBinding;
+import com.fonteraro.martaco.cinemahub.ui.base.BaseActivity;
+import javax.inject.Inject;
 import androidx.annotation.Nullable;
-import androidx.lifecycle.LiveData;
 
-public class DetailsActivity extends BaseActivity<ActivityDetailsBinding, DetailsViewModel> implements MovieRequestListener {
+public class DetailsActivity extends BaseActivity<ActivityDetailsBinding, DetailsViewModel> {
 
     @Inject
     DetailsViewModel detailsViewModel;
@@ -25,8 +18,17 @@ public class DetailsActivity extends BaseActivity<ActivityDetailsBinding, Detail
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getViewDataBinding().setLifecycleOwner(this);
+        fetchMovie();
+    }
 
-        detailsViewModel.getMovieDetails(getIntent().getStringExtra(EXTRA_KEY_MOVIE_ID), this);
+    private void fetchMovie() {
+        long movieId = retrieveMovieId();
+        if (movieId != -1) getViewModel().getMovieDetails(movieId);
+    }
+
+    private Long retrieveMovieId() {
+        return getIntent().getLongExtra(EXTRA_KEY_MOVIE_ID, -1);
     }
 
     @Override
@@ -42,16 +44,5 @@ public class DetailsActivity extends BaseActivity<ActivityDetailsBinding, Detail
     @Override
     public DetailsViewModel getViewModel() {
         return detailsViewModel;
-    }
-
-    @Override
-    public void onMovieRequestSucceeded(@NonNull LiveData<MovieDetails> movieDetails) {
-        detailsViewModel.setMovieDetails(movieDetails);
-        getViewDataBinding().invalidateAll();
-    }
-
-    @Override
-    public void onMovieRequestFailed() {
-        // show placeholder or error if not data
     }
 }

@@ -4,6 +4,8 @@ import android.app.Application
 import com.fonteraro.martaco.cinemahub.CinemaHubApplication
 import com.fonteraro.martaco.cinemahub.di.builder.ActivityBuilder
 import com.fonteraro.martaco.cinemahub.di.module.AppModule
+import com.fonteraro.martaco.cinemahub.di.module.BindingsModule
+import com.fonteraro.martaco.cinemahub.di.module.DispatchersModule
 
 import javax.inject.Singleton
 
@@ -13,7 +15,13 @@ import dagger.android.AndroidInjectionModule
 import dagger.android.AndroidInjector
 
 @Singleton
-@Component(modules = [AndroidInjectionModule::class, AppModule::class, ActivityBuilder::class])
+@Component(modules = [
+    AndroidInjectionModule::class,
+    AppModule::class,
+    ActivityBuilder::class,
+    BindingsModule::class,
+    DispatchersModule::class
+])
 interface AppComponent : AndroidInjector<CinemaHubApplication> {
 
     @Component.Factory

@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 
-import com.fonteraro.martaco.cinemahub.data.model.db.Movie;
+import com.fonteraro.martaco.cinemahub.ui.model.Movie;
 import com.fonteraro.martaco.cinemahub.databinding.MovieItemBinding;
 import com.fonteraro.martaco.cinemahub.ui.main.callback.IMovieClickListener;
 import com.github.wrdlbrnft.sortedlistadapter.SortedListAdapter;
@@ -18,9 +18,8 @@ public class SortedMoviesAdapter extends SortedListAdapter<Movie> {
     private IMovieClickListener listener;
 
     public SortedMoviesAdapter(@NonNull Context context,
-                               @NonNull Comparator<Movie> comparator,
                                @NonNull IMovieClickListener listener) {
-        super(context, Movie.class, comparator);
+        super(context, Movie.class, COMPARATOR);
 
         this.listener = listener;
     }
@@ -31,4 +30,10 @@ public class SortedMoviesAdapter extends SortedListAdapter<Movie> {
         final MovieItemBinding binding = MovieItemBinding.inflate(inflater, parent, false);
         return new MovieViewHolder(binding, listener);
     }
+
+    private static final Comparator<Movie> COMPARATOR = new SortedListAdapter.ComparatorBuilder<Movie>()
+            .setOrderForModel(Movie.class, (a, b) -> Integer.signum(a.hashCode() - b.hashCode()))
+            .build();
+
+
 }
