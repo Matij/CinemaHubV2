@@ -4,6 +4,7 @@ import androidx.appcompat.widget.AppCompatImageView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.fonteraro.martaco.cinemahub.R
 
 @BindingAdapter("imageUrl")
 fun loadImage(view: AppCompatImageView, imageUrl: String?) {
@@ -12,6 +13,7 @@ fun loadImage(view: AppCompatImageView, imageUrl: String?) {
             .load(imageUrl)
             .dontAnimate()
             .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
+            .placeholder(R.drawable.error_placeholder)
             .into(view)
     }
 }
