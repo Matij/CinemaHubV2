@@ -1,4 +1,4 @@
-package com.fonteraro.martaco.cinemahub.di.module
+package com.fonteraro.martaco.cinemahub.di
 
 import javax.inject.Qualifier
 

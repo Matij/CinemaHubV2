@@ -1,5 +1,7 @@
 package com.fonteraro.martaco.cinemahub.di.module
 
+import com.fonteraro.martaco.cinemahub.di.OkHttpInterceptor
+import com.fonteraro.martaco.cinemahub.di.OkHttpNetworkInterceptor
 import dagger.Module
 import dagger.multibindings.Multibinds
 import okhttp3.Interceptor
