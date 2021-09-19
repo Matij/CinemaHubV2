@@ -55,6 +55,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(),
     private fun updateUI() {
         with(viewModel) {
             movies.observe(this@MainActivity, EventObserver { movieList ->
+                viewDataBinding.emptyView.isVisible = movieList.isEmpty()
                 moviesAdapter!!.submitList(movieList)
             })
             isLoading.observe(this@MainActivity, EventObserver { isLoading ->

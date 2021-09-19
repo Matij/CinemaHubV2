@@ -18,9 +18,11 @@ class DetailsViewModel @Inject constructor(
 
     private var _movie = MutableLiveData<Event<Movie>>()
 
-    fun getMovieDetails(movieId: Long) = ioScope.launch {
-        moviesRepository.getMovie(movieId).also {
-            uiScope.launch { _movie.value = it.toEvent() }
+    fun getMovieDetails(movieId: Long) {
+        ioScope.launch {
+            moviesRepository.getMovie(movieId).also {
+                uiScope.launch { _movie.value = it.toEvent() }
+            }
         }
     }
 

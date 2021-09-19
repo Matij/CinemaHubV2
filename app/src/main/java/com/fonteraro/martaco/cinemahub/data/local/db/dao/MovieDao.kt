@@ -1,6 +1,5 @@
 package com.fonteraro.martaco.cinemahub.data.local.db.dao
 
-import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert

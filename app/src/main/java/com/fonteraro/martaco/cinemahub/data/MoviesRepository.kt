@@ -41,7 +41,8 @@ class MoviesRepository @Inject constructor(
     }
 
     private fun shouldRefreshData() =
-        Date().time - preferencesHelper.lastRefreshTimestamp >= TEN_MINUTES
+        preferencesHelper.lastRefreshTimestamp != 0L &&
+                Date().time - preferencesHelper.lastRefreshTimestamp >= TEN_MINUTES
 }
 
 fun List<DBMovie>.toDomainModel(): List<Movie> {

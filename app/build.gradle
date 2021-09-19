@@ -39,15 +39,31 @@ android {
         viewBinding = true
         dataBinding = true
     }
+
+    testOptions {
+        animationsDisabled = true
+        unitTests {
+            returnDefaultValues true
+            includeAndroidResources = true
+
+            all {
+                // set heap size for the test JVM(s)
+                minHeapSize = "256m"
+                maxHeapSize = "1g"
+                jvmArgs '-Djdk.attach.allowAttachSelf=true'
+
+                if (it.name == 'testDebugUnitTest') {
+                    systemProperty 'debug', 'true'
+                }
+            }
+        }
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation Libs.androidAppCompat
     implementation Libs.annotations
-    testImplementation Libs.jUnit
-    androidTestImplementation Libs.testRunner
-    androidTestImplementation Libs.espresso
 
     // dependency injection
     implementation Libs.dagger
@@ -102,4 +118,16 @@ dependencies {
     implementation Libs.android
 
     implementation Libs.coreKtx
+
+    // tests
+    testImplementation Libs.coreTesting
+    testImplementation Libs.coroutineTest
+    testImplementation Libs.jUnit
+    testImplementation Libs.kotlinTest
+    testImplementation(Libs.mockk)
+    testImplementation Libs.mockkAndroid
+    androidTestImplementation Libs.espresso
+    androidTestImplementation Libs.testEspressoCore
+    androidTestImplementation Libs.testExtJunit
+    androidTestImplementation Libs.testRunner
 }

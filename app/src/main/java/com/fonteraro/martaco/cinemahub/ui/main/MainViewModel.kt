@@ -45,6 +45,14 @@ class MainViewModel @Inject constructor(
                 _movies.value = result.value.toEvent()
                 updateLoadingState(loading = false)
             }
+            is ResultWrapper.NetworkError -> {
+                _movies.value = emptyList<Movie>().toEvent()
+                updateLoadingState(loading = false)
+            }
+            is ResultWrapper.GenericError -> {
+                _movies.value = emptyList<Movie>().toEvent()
+                updateLoadingState(loading = false)
+            }
         }
     }
 
