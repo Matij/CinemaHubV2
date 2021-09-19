@@ -1,4 +1,4 @@
-package com.fonteraro.martaco.cinemahub.ui.main
+package com.fonteraro.martaco.cinemahub.ui
 
 import com.fonteraro.martaco.cinemahub.ui.model.Movie
 
@@ -9,7 +9,7 @@ object DummyMovieFactory {
 
     fun aMysteryMovie() = Movie(
         id = 5556,
-        genre = "Mistery",
+        genre = "Mystery",
         title = "Blade Runner 2049",
         poster = "https://image.tbdb.org/t/p/w370_and_h556_bestv2/gajva2L0rPYkEWjzgFIBXCAVBE5.jpg",
         year = "2017"

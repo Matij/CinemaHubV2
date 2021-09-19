@@ -4,9 +4,9 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
 import com.fonteraro.martaco.cinemahub.data.MoviesRepository
 import com.fonteraro.martaco.cinemahub.di.module.CoroutineDispatchers
-import com.fonteraro.martaco.cinemahub.ui.main.DummyMovieFactory.aMysteryMovie
-import com.fonteraro.martaco.cinemahub.ui.main.DummyMovieFactory.anActionMovie
-import com.fonteraro.martaco.cinemahub.ui.main.DummyMovieFactory.anFantasyMovie
+import com.fonteraro.martaco.cinemahub.ui.DummyMovieFactory.aMysteryMovie
+import com.fonteraro.martaco.cinemahub.ui.DummyMovieFactory.anActionMovie
+import com.fonteraro.martaco.cinemahub.ui.DummyMovieFactory.anFantasyMovie
 import com.fonteraro.martaco.cinemahub.utils.Event
 import com.fonteraro.martaco.cinemahub.utils.ResultWrapper
 import io.mockk.coEvery
