@@ -23,17 +23,19 @@ class MainViewModel @Inject constructor(
         retrieveMovies()
     }
 
-    fun onMovieQuery(query: String) {
+    fun onMovieQuery(query: String) = ioScope.launch {
         updateLoadingState(loading = true)
+        val movies = moviesRepository.getMovies()
         if (query.isNotEmpty()) {
-            val movies = _movies.value?.peek()
             val searchedText = query.lowercase()
-            _movies.value = movies?.filter {
-                it.title.lowercase().contains(searchedText) ||
-                        it.genre.lowercase().contains(searchedText)
-            }?.toEvent()
+            uiScope.launch {
+                _movies.value = movies.filter {
+                    it.title.lowercase().contains(searchedText) ||
+                            it.genre.lowercase().contains(searchedText)
+                }.toEvent()
+            }
         } else {
-            retrieveMovies()
+            uiScope.launch { _movies.value = movies.toEvent() }
         }
         updateLoadingState(loading = false)
     }
@@ -45,10 +47,18 @@ class MainViewModel @Inject constructor(
                 _movies.value = result.value.toEvent()
                 updateLoadingState(loading = false)
             }
+            is ResultWrapper.NetworkError -> {
+                _movies.value = emptyList<Movie>().toEvent()
+                updateLoadingState(loading = false)
+            }
+            is ResultWrapper.GenericError -> {
+                _movies.value = emptyList<Movie>().toEvent()
+                updateLoadingState(loading = false)
+            }
         }
     }
 
-    private fun updateLoadingState(loading: Boolean) {
+    private fun updateLoadingState(loading: Boolean) = uiScope.launch {
         _isLoading.value = loading.toEvent()
     }
 

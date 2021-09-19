@@ -11,11 +11,11 @@ android {
     compileSdkVersion 31
     defaultConfig {
         applicationId "com.fonteraro.martaco.cinemahub"
-        minSdkVersion 17
+        minSdkVersion 21
         targetSdkVersion 31
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         // Default servers URL
         buildConfigField "String", "API_SERVER_URL", "\"https://movies-sample.herokuapp.com/api/\""
@@ -39,15 +39,31 @@ android {
         viewBinding = true
         dataBinding = true
     }
+
+    testOptions {
+        animationsDisabled = true
+        unitTests {
+            returnDefaultValues true
+            includeAndroidResources = true
+
+            all {
+                // set heap size for the test JVM(s)
+                minHeapSize = "256m"
+                maxHeapSize = "1g"
+                jvmArgs '-Djdk.attach.allowAttachSelf=true'
+
+                if (it.name == 'testDebugUnitTest') {
+                    systemProperty 'debug', 'true'
+                }
+            }
+        }
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation Libs.androidAppCompat
     implementation Libs.annotations
-    testImplementation Libs.jUnit
-    androidTestImplementation Libs.testRunner
-    androidTestImplementation Libs.espresso
 
     // dependency injection
     implementation Libs.dagger
@@ -84,9 +100,6 @@ dependencies {
     // image loader
     implementation Libs.glide
 
-    // sorted list adapter
-    implementation Libs.sortedListAdapter
-
     // Data-binding
     implementation Libs.databinding_collectionadapter
     implementation Libs.databinding_collectionadapter_recyclerView
@@ -102,4 +115,18 @@ dependencies {
     implementation Libs.android
 
     implementation Libs.coreKtx
+
+    // tests
+    testImplementation Libs.coreTesting
+    testImplementation Libs.coroutineTest
+    testImplementation Libs.jUnit
+    testImplementation Libs.kotlinTest
+    testImplementation(Libs.mockk)
+    testImplementation Libs.mockkAndroid
+    testImplementation Libs.testCore
+    androidTestImplementation Libs.mockkAndroid
+    androidTestImplementation Libs.testCore
+    androidTestImplementation Libs.testEspressoCore
+    androidTestImplementation Libs.testExtJunit
+    androidTestImplementation Libs.testRunner
 }

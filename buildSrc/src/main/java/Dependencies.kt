@@ -7,6 +7,7 @@ object Versions {
     const val appcompatVersion = "1.3.1"
     const val constraintLayoutVersion = "2.1.0"
     const val coreKtxVersion = "1.6.0"
+    const val coreTestingVersion = "2.1.0"
     const val coroutinesVersion = "1.5.2"
     const val dagger2 = "2.38.1"
     const val databindingAdapterVersion = "4.0.0"
@@ -15,16 +16,17 @@ object Versions {
     const val glideVersion = "4.12.0"
     const val jUnitVersion = "4.13.2"
     const val kotlinVersion = "1.5.30"
-    const val materialVersion = "1.4.0"
-    const val moshiVersion = "1.12.0"
-    const val multiDexVersion = "2.0.1"
     const val lifecycleCompilerVersion = "2.3.1"
     const val lifecycleExtVersion = "2.2.0"
+    const val materialVersion = "1.4.0"
+    const val mockkVersion = "1.12.0"
+    const val moshiVersion = "1.12.0"
+    const val multiDexVersion = "2.0.1"
     const val okHttpVersion = "4.9.1"
     const val recyclerViewVersion = "1.2.0"
     const val retrofitVersion = "2.9.0"
     const val roomVersion = "2.3.0"
-    const val sortedAdapterVersion = "0.3.0.27"
+    const val testExtJunitVersion = "1.1.2"
     const val testRunnerVersion = "1.4.0"
     const val versionsPluginVersion = "0.39.0"
 
@@ -37,13 +39,11 @@ object Libs {
     const val androidAppCompat = "androidx.appcompat:appcompat:${Versions.appcompatVersion}"
     const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayoutVersion}"
     const val fragmentKtx = "androidx.fragment:fragment-ktx:${Versions.fragmentKtxVersion}"
-    const val espresso = "androidx.test.espresso:espresso-core:${Versions.espressoVersion}"
     const val lifecycleCompiler = "androidx.lifecycle:lifecycle-compiler:${Versions.lifecycleCompilerVersion}"
     const val lifecycleExtensions = "androidx.lifecycle:lifecycle-extensions:${Versions.lifecycleExtVersion}"
     const val recyclerView = "androidx.recyclerview:recyclerview:${Versions.recyclerViewVersion}"
     const val roomCompiler = "androidx.room:room-compiler:${Versions.roomVersion}"
     const val roomKtx = "androidx.room:room-ktx:${Versions.roomVersion}"
-    const val testRunner = "androidx.test:runner:${Versions.testRunnerVersion}"
     const val annotations = "androidx.annotation:annotation:${Versions.annotationsVersion}"
     const val material = "com.google.android.material:material:${Versions.materialVersion}"
     const val coreKtx = "androidx.core:core-ktx:${Versions.coreKtxVersion}"
@@ -67,23 +67,32 @@ object Libs {
 
     const val glide = "com.github.bumptech.glide:glide:${Versions.glideVersion}"
 
-    const val sortedListAdapter = "com.github.wrdlbrnft:sorted-list-adapter:${Versions.sortedAdapterVersion}"
-
     const val androidGifDrawable = "pl.droidsonroids.gif:android-gif-drawable:${Versions.androidGifDrawableVersion}"
     // Checks for whether dependencies have updates
     const val gradleVersionsPlugin = "com.github.ben-manes:gradle-versions-plugin:${Versions.versionsPluginVersion}"
 
     const val kotlinStdLib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlinVersion}"
     const val kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlinVersion}"
+    const val kotlinTest = "org.jetbrains.kotlin:kotlin-test:${Versions.kotlinVersion}"
 
     const val core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutinesVersion}"
     const val rx2 = "org.jetbrains.kotlinx:kotlinx-coroutines-rx2:${Versions.coroutinesVersion}"
     const val android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutinesVersion}"
     const val test = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutinesVersion}"
+    const val coroutineTest = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutinesVersion}"
     const val debug = "org.jetbrains.kotlinx:kotlinx-coroutines-debug:${Versions.coroutinesVersion}"
 
     const val gradle = "com.android.tools.build:gradle:${Versions.agpVersion}"
-    const val jUnit = "junit:junit:${Versions.jUnitVersion}"
 
     const val multiDex = "androidx.multidex:multidex:${Versions.multiDexVersion}"
+
+    const val coreTesting = "androidx.arch.core:core-testing:${Versions.coreTestingVersion}"
+    const val jUnit = "junit:junit:${Versions.jUnitVersion}"
+    const val mockk = "io.mockk:mockk:${Versions.mockkVersion}"
+    const val mockkAndroid = "io.mockk:mockk-android:${Versions.mockkVersion}"
+    const val testEspressoCore = "androidx.test.espresso:espresso-core:${Versions.espressoVersion}"
+    const val testExtJunit = "androidx.test.ext:junit:${Versions.testExtJunitVersion}"
+    const val testRunner = "androidx.test:runner:${Versions.testRunnerVersion}"
+    const val testCore = "androidx.test:core:1.4.0-rc01"
+
 }
