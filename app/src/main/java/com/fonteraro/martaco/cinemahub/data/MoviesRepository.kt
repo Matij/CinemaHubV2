@@ -21,7 +21,7 @@ class MoviesRepository @Inject constructor(
 ) {
     suspend fun fetchMovies(): ResultWrapper<List<Movie>> {
         return networkHelper.safeApiCall {
-            if (shouldRefreshData()) movieDao.getMovies().map { it.toDomainModel() }
+            if (shouldRefreshData()) getMovies()
             else apiInterface.getMovies().data.map {
                 DBMovie(
                     id = it.id,

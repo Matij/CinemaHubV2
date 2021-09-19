@@ -11,11 +11,11 @@ android {
     compileSdkVersion 31
     defaultConfig {
         applicationId "com.fonteraro.martaco.cinemahub"
-        minSdkVersion 17
+        minSdkVersion 21
         targetSdkVersion 31
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         // Default servers URL
         buildConfigField "String", "API_SERVER_URL", "\"https://movies-sample.herokuapp.com/api/\""
@@ -100,9 +100,6 @@ dependencies {
     // image loader
     implementation Libs.glide
 
-    // sorted list adapter
-    implementation Libs.sortedListAdapter
-
     // Data-binding
     implementation Libs.databinding_collectionadapter
     implementation Libs.databinding_collectionadapter_recyclerView
@@ -126,7 +123,9 @@ dependencies {
     testImplementation Libs.kotlinTest
     testImplementation(Libs.mockk)
     testImplementation Libs.mockkAndroid
-    androidTestImplementation Libs.espresso
+    testImplementation Libs.testCore
+    androidTestImplementation Libs.mockkAndroid
+    androidTestImplementation Libs.testCore
     androidTestImplementation Libs.testEspressoCore
     androidTestImplementation Libs.testExtJunit
     androidTestImplementation Libs.testRunner

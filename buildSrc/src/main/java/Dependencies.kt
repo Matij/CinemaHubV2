@@ -39,13 +39,11 @@ object Libs {
     const val androidAppCompat = "androidx.appcompat:appcompat:${Versions.appcompatVersion}"
     const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayoutVersion}"
     const val fragmentKtx = "androidx.fragment:fragment-ktx:${Versions.fragmentKtxVersion}"
-    const val espresso = "androidx.test.espresso:espresso-core:${Versions.espressoVersion}"
     const val lifecycleCompiler = "androidx.lifecycle:lifecycle-compiler:${Versions.lifecycleCompilerVersion}"
     const val lifecycleExtensions = "androidx.lifecycle:lifecycle-extensions:${Versions.lifecycleExtVersion}"
     const val recyclerView = "androidx.recyclerview:recyclerview:${Versions.recyclerViewVersion}"
     const val roomCompiler = "androidx.room:room-compiler:${Versions.roomVersion}"
     const val roomKtx = "androidx.room:room-ktx:${Versions.roomVersion}"
-    const val testRunner = "androidx.test:runner:${Versions.testRunnerVersion}"
     const val annotations = "androidx.annotation:annotation:${Versions.annotationsVersion}"
     const val material = "com.google.android.material:material:${Versions.materialVersion}"
     const val coreKtx = "androidx.core:core-ktx:${Versions.coreKtxVersion}"
@@ -94,4 +92,7 @@ object Libs {
     const val mockkAndroid = "io.mockk:mockk-android:${Versions.mockkVersion}"
     const val testEspressoCore = "androidx.test.espresso:espresso-core:${Versions.espressoVersion}"
     const val testExtJunit = "androidx.test.ext:junit:${Versions.testExtJunitVersion}"
+    const val testRunner = "androidx.test:runner:${Versions.testRunnerVersion}"
+    const val testCore = "androidx.test:core:1.4.0-rc01"
+
 }
