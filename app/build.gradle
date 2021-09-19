@@ -72,6 +72,7 @@ dependencies {
     // view model
     implementation Libs.lifecycleExtensions
     kapt Libs.lifecycleCompiler
+    implementation Libs.fragmentKtx
 
     // constraint layout
     implementation Libs.constraintLayout

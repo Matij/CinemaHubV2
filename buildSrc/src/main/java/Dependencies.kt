@@ -11,6 +11,7 @@ object Versions {
     const val dagger2 = "2.38.1"
     const val databindingAdapterVersion = "4.0.0"
     const val espressoVersion = "3.4.0"
+    const val fragmentKtxVersion = "1.3.6"
     const val glideVersion = "4.12.0"
     const val jUnitVersion = "4.13.2"
     const val kotlinVersion = "1.5.30"
@@ -35,6 +36,7 @@ object Libs {
 
     const val androidAppCompat = "androidx.appcompat:appcompat:${Versions.appcompatVersion}"
     const val constraintLayout = "androidx.constraintlayout:constraintlayout:${Versions.constraintLayoutVersion}"
+    const val fragmentKtx = "androidx.fragment:fragment-ktx:${Versions.fragmentKtxVersion}"
     const val espresso = "androidx.test.espresso:espresso-core:${Versions.espressoVersion}"
     const val lifecycleCompiler = "androidx.lifecycle:lifecycle-compiler:${Versions.lifecycleCompilerVersion}"
     const val lifecycleExtensions = "androidx.lifecycle:lifecycle-extensions:${Versions.lifecycleExtVersion}"

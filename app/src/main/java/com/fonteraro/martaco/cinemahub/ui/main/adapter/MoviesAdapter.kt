@@ -1,4 +1,4 @@
-package com.fonteraro.martaco.cinemahub.ui.main.adapter.sortedlist
+package com.fonteraro.martaco.cinemahub.ui.main.adapter
 
 import android.view.View
 import com.fonteraro.martaco.cinemahub.BR

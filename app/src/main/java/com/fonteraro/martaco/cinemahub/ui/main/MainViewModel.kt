@@ -10,8 +10,9 @@ import com.fonteraro.martaco.cinemahub.utils.Event
 import com.fonteraro.martaco.cinemahub.utils.ResultWrapper
 import com.fonteraro.martaco.cinemahub.utils.extensions.toEvent
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class MainViewModel(
+class MainViewModel @Inject constructor(
     private val moviesRepository: MoviesRepository,
     dispatchers: CoroutineDispatchers,
 ): BaseViewModel(dispatchers = dispatchers) {

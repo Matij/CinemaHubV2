@@ -2,23 +2,21 @@ package com.fonteraro.martaco.cinemahub.di.component
 
 import android.app.Application
 import com.fonteraro.martaco.cinemahub.CinemaHubApplication
-import com.fonteraro.martaco.cinemahub.di.builder.ActivityBuilder
 import com.fonteraro.martaco.cinemahub.di.module.AppModule
 import com.fonteraro.martaco.cinemahub.di.module.BindingsModule
 import com.fonteraro.martaco.cinemahub.di.module.DispatchersModule
-
-import javax.inject.Singleton
-
+import com.fonteraro.martaco.cinemahub.ui.UiModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjectionModule
 import dagger.android.AndroidInjector
+import javax.inject.Singleton
 
 @Singleton
 @Component(modules = [
     AndroidInjectionModule::class,
     AppModule::class,
-    ActivityBuilder::class,
+    UiModule::class,
     BindingsModule::class,
     DispatchersModule::class
 ])
