@@ -26,7 +26,6 @@ object Versions {
     const val recyclerViewVersion = "1.2.0"
     const val retrofitVersion = "2.9.0"
     const val roomVersion = "2.3.0"
-    const val sortedAdapterVersion = "0.3.0.27"
     const val testExtJunitVersion = "1.1.2"
     const val testRunnerVersion = "1.4.0"
     const val versionsPluginVersion = "0.39.0"
@@ -69,8 +68,6 @@ object Libs {
     const val moshiKotlinCodegen = "com.squareup.moshi:moshi-kotlin-codegen:${Versions.moshiVersion}"
 
     const val glide = "com.github.bumptech.glide:glide:${Versions.glideVersion}"
-
-    const val sortedListAdapter = "com.github.wrdlbrnft:sorted-list-adapter:${Versions.sortedAdapterVersion}"
 
     const val androidGifDrawable = "pl.droidsonroids.gif:android-gif-drawable:${Versions.androidGifDrawableVersion}"
     // Checks for whether dependencies have updates

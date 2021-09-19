@@ -17,7 +17,7 @@ interface MovieDao {
     fun insertAll(movies: List<DBMovie>)
 
     @Query("SELECT * FROM movies")
-    fun queryMovies(): List<DBMovie>
+    fun getMovies(): List<DBMovie>
 
     @Query("SELECT * FROM movies WHERE id=:movieId")
     fun getMovie(movieId: Long): DBMovie
