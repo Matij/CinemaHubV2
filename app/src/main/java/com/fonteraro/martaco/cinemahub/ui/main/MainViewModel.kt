@@ -45,17 +45,15 @@ class MainViewModel @Inject constructor(
         when (val result = moviesRepository.fetchMovies()) {
             is ResultWrapper.Success -> {
                 _movies.value = result.value.toEvent()
-                updateLoadingState(loading = false)
             }
             is ResultWrapper.NetworkError -> {
                 _movies.value = emptyList<Movie>().toEvent()
-                updateLoadingState(loading = false)
             }
             is ResultWrapper.GenericError -> {
                 _movies.value = emptyList<Movie>().toEvent()
-                updateLoadingState(loading = false)
             }
         }
+        updateLoadingState(loading = false)
     }
 
     private fun updateLoadingState(loading: Boolean) = uiScope.launch {

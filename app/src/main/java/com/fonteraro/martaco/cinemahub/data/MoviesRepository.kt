@@ -21,7 +21,7 @@ class MoviesRepository @Inject constructor(
 ) {
     suspend fun fetchMovies(): ResultWrapper<List<Movie>> {
         return networkHelper.safeApiCall {
-            if (shouldRefreshData()) getMovies()
+            if (shouldRefreshData().not()) getMovies()
             else apiInterface.getMovies().data.map {
                 DBMovie(
                     id = it.id,
@@ -31,6 +31,7 @@ class MoviesRepository @Inject constructor(
                     year = it.year,
                 )
             }.also {
+                preferencesHelper.lastRefreshTimestamp = Date().time
                 movieDao.insertAll(it)
             }.toDomainModel()
         }
@@ -45,8 +46,7 @@ class MoviesRepository @Inject constructor(
     }
 
     private fun shouldRefreshData() =
-        preferencesHelper.lastRefreshTimestamp != 0L &&
-                Date().time - preferencesHelper.lastRefreshTimestamp >= TEN_MINUTES
+        Date().time - preferencesHelper.lastRefreshTimestamp >= TEN_MINUTES
 }
 
 fun List<DBMovie>.toDomainModel(): List<Movie> {
